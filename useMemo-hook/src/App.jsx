@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import { useState,useMemo } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [number,setNumber] = useState(0);
+  const [counter,setCounter] = useState(0);
 
+  function cubeNum(num){
+    console.log('calculation done');
+    return Math.pow(num,3);
+  }
+  const result = useMemo(()=> cubeNum(number),[number]);
+  // input m number ko change krenge toh number state m means dependency array m change hoga and callback function chalega then cubeNum function call hoga and result ki value update ho jayegi
+  // useMemo hook accepts two parameters callback function and dependency array
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <input type="number" value={number} onChange={(e)=>{setNumber(e.target.value)}} />
+      <h1>cube of the number:{result}</h1>
+      <button onClick={()=>{setCounter(counter+1)}}>Counter++</button>
+      <h1>Counter: {counter}</h1>
+    </div>
   )
 }
+// when to use useMemo hook
+// jab ek state ko change krne se dusri state m change aaye and hum nhi chahte ki ek state m change krne se dusri state m change aaye uss case m we will use useMemo hook so dusri state ko means uss variable ko dependency array m pass krenge and callback function m change (means logic) pass krenge toh y callback function tabhi chalega jab dependency array m change aayega jab uss variable ki value means state m update hoga
+// jab hum counter state ko update krenge toh component rerender hoga but isse cube of the number pr koi effect nhi padega result m tabhi change aayega jab number state ko update krenge jab dependency array m change aayega
 
 export default App
