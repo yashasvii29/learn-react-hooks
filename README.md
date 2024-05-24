@@ -30,15 +30,30 @@ when we dont want to rerender the component when the state changes(means value o
 
 # useMemo
 The useMemo hook is used to memoize the value in the component (it's like caching a value so that it doesn't need to be recalculated ). It is used to optimize the performance of the component by caching the value results.
+When you use the useMemo hook, you are caching the value so that it doesn't need to be recalculated on every render, thereby improving the performance of your application.
 UseMemo hook improve performance of our application
 The useMemo hook only runs when one of its dependencies gets updated.This can improve the performance of the application.
+
+Caching (not catching):
+useMemo is used for caching the result of a computation.
+
+Improving Performance:
+By avoiding redundant calculations, useMemo helps in improving the performance of your application.
+
+Dependencies:
+The memoized value is only recalculated when one of the dependencies changes, ensuring that the calculation is performed only when necessary.
 
 # useCallback
 The useCallback hook is used to memoize the function in the component. It is used to optimize the performance of the component by caching the function results.
 useCallback hook allow us to cache a function definition between rerenders which means when we use the useCallback hook , it does not create multiple instance of same function when rerender happens.
 Instead of creating new instance of the function, it provides the cached function on rerender of the component.
 
-** useMemo and useCallback both the hooks are same but the differnce is -:
+In the context of the useCallback hook, caching refers to the practice of storing a function so that the same instance of the function is reused between renders, rather than creating a new instance of the function on each render. This helps to optimize performance by ensuring that the function reference remains stable across renders unless its dependencies change.
+
+How useCallback Works
+When you use useCallback, you are instructing React to remember the function and only recreate it when one of its dependencies has changed. This can prevent unnecessary re-renders of child components that depend on that function, as they will only re-render if the function reference itself changes.
+
+* useMemo and useCallback both the hooks are same but the differnce is -:
 
 * useMemo hook memoize a value
 * useCallback hook memoize the function
@@ -62,3 +77,19 @@ useReducer hook return an array
 -Initial state
 and this hook returns current state and Dispatch method inside an array
 3. Reducer function specifies how the state gets updated.
+
+The useReducer hook in React is a powerful tool for managing state, especially in cases where the state logic is complex or involves multiple sub-values. It is an alternative to useState and is more suited for handling state transitions that follow a specific set of rules or actions.
+
+* How useReducer Works
+reducer: A function that determines how the state should change based on an action. It takes the current state and an action as arguments and returns a new state.
+initialState: The initial state value.
+state: The current state, returned by the hook.
+dispatch: A function to dispatch actions to the reducer.
+
+* useState:
+Simpler and more straightforward.
+Best for simple state management.
+
+* useReducer:
+Better for complex state logic.
+Provides a clear structure for state transitions.
