@@ -42,3 +42,23 @@ Instead of creating new instance of the function, it provides the cached functio
 
 * useMemo hook memoize a value
 * useCallback hook memoize the function
+
+# useContext
+The useContext hook allow us to access data from any component without explicitly passing it down through props at every level.
+ useContext hook is used to manage global data in the react app.
+ useContext hook helps to avoid prop drilling.
+why we need useContext hook
+* when we have to pass the data from parent to child component and child to parent component then we use props in react but when we are working with more nested components or when we have more nested components it will be very difficult to manage the data and we have to pass the data through each component level so to solve this problem we will use useContext hook....useContext hook allow us to create global data and we can access this data from any component without passing it through props at every component level.
+* We can use the useContext hook in 3 simple steps -:
+1. first one is creating the context
+2. second one is providing the context
+3. third step is consuming the context
+
+# useReducer 
+1. useReducer hook is similar to useState hook, but instead of providing the state and setter function, it provides state and dispatch function.
+useReducer hook return an array
+2. useReducer hook accepts two arguments :
+-Reducer function
+-Initial state
+and this hook returns current state and Dispatch method inside an array
+3. Reducer function specifies how the state gets updated.
