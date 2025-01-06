@@ -27,6 +27,9 @@ The useEffect hook is used to perform side effects in the component. It is used 
 The useRef hook is used to store the reference of the DOM element in the component. It is used to access the DOM element in the component.
 useRef does not rerender the component when state changes
 when we dont want to rerender the component when the state changes(means value of a variable changes) in that case we will use useRef hook.
+useRef hook is used to manipulate the dom, it is used for dom manipulation.
+It returns a object with a single property current and with the help of that current property we can manipulate the dom element 
+It also changes the value in real time.
 
 # useMemo
 The useMemo hook is used to memoize the value in the component (it's like caching a value so that it doesn't need to be recalculated ). It is used to optimize the performance of the component by caching the value results.
